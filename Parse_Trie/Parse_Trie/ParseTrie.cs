@@ -65,14 +65,4 @@ public class ParseTrie
         return root.PrintC();
     }
 }
-internal static class Program
-{
-    private static void Main(string[] args)
-    {
-        var a = new ParseTrie();
-        Console.WriteLine(a.GetTrieValue("(* (+ 1 1) 2)"));
-        a.PrintCalculate();
 
-
-    }
-}
