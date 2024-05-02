@@ -34,7 +34,7 @@ public class ExpessionToNewTries
     public string[] NewExpressions(string s)
     {
         int number;
-        (int Count_left_scope, int Count_right_scope) = (0, 0);
+        (int CountLeftScope, int CountRightScope) = (0, 0);
         bool flag = false;
         int ind=0;
         s = s.Substring(3, s.Length- 4);
@@ -45,15 +45,27 @@ public class ExpessionToNewTries
         else{
             for (int i =0; i<s.Length; ++i)
             {
-                if (s[i]=='(') {Count_left_scope++;}
-                if (s[i] == ')') {Count_right_scope++;} 
-                if (Count_left_scope == Count_right_scope) {ind = i+1; flag = true; break;}
+                if (s[i]=='(') 
+                {
+                    CountLeftScope++;
+                }
+                if (s[i] == ')') 
+                {
+                    CountRightScope++;
+                } 
+                if (CountLeftScope == CountRightScope) 
+                {
+                    ind = i+1; flag = true; break;
+                }
             }
             if (flag == true && (s[ind+1] == '(' || int.TryParse(Convert.ToString(s[ind+1]), out number)) )
             {
                 return SplitByIndex(s, ind);
             }
-            else {throw new IncorrectException("incorrect trie");}
+            else 
+            {
+                throw new IncorrectException("incorrect trie");
+            }
 
         }  
     }

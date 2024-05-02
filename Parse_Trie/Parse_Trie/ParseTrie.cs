@@ -13,37 +13,41 @@ public class ParseTrie
     {
         int number;
         if (int.TryParse(Convert.ToString(s), out number)) {
-            var Current_Node = new Number(number);
-            return Current_Node;
+            var CurrentNode = new Number(number);
+            return CurrentNode;
         }
         else
         {
-            var Current_Node = new Operation(s[1]);
+            var CurrentNode = new Operation(s[1]);
             var _ExpessionToNewTries = new ExpessionToNewTries();
             string[] a= _ExpessionToNewTries.NewExpressions(s); 
-            (Current_Node.left_Node, Current_Node.right_Node) = (Trie(a[0]), Trie(a[1]));
-            return Current_Node;
+            (CurrentNode.leftNode, CurrentNode.rightNode) = (Trie(a[0]), Trie(a[1]));
+            return CurrentNode;
         }
     }
     /// <summary>
     /// creates whole trie 
     /// </summary>
     /// <param name="s">expression</param>
-    /// <param name="Current_Node">node of trie</param>
-    private void BuildingTrie(string s, Operation Current_Node)
+    /// <param name="CurrentNode">node of trie</param>
+    private void BuildingTrie(string s, Operation CurrentNode)
     {
-        if (Current_Node == null) {root = Trie(s); Current_Node = root;}
+        if (CurrentNode == null) 
+        {
+            root = Trie(s); 
+            CurrentNode = root;
+        }
         var _ExpessionToNewTries = new ExpessionToNewTries();
         string[] a= _ExpessionToNewTries.NewExpressions(s);
-        if (Current_Node.left_Node.Value == null)
+        if (CurrentNode.leftNode.Value == null)
         {
-            BuildingTrie(a[0], (Operation)Current_Node.left_Node);
+            BuildingTrie(a[0], (Operation)CurrentNode.leftNode);
         }
-        if (Current_Node.right_Node.Value == null)
+        if (CurrentNode.rightNode.Value == null)
         {
-            BuildingTrie(a[1], (Operation)Current_Node.right_Node);
+            BuildingTrie(a[1], (Operation)CurrentNode.rightNode);
         }
-        Current_Node.Value_Of_Node();
+        CurrentNode.ValueOfNode();
     }
     /// <summary>
     /// moves trie calculating to root
