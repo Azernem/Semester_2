@@ -4,7 +4,7 @@
 public abstract class Node
 {
     public float? Value {get; set;}
-    public abstract float? Value_Of_Node();
+    public abstract float? ValueOfNode();
     public abstract string PrintC();
 }
 /// <summary>
@@ -13,8 +13,8 @@ public abstract class Node
 public class Operation: Node
 {
     public char Operand {get; private set;}
-    public Node? left_Node;
-    public Node? right_Node;
+    public Node? leftNode;
+    public Node? rightNode;
     public Operation(char operand)
     {
         Operand = operand;
@@ -23,25 +23,25 @@ public class Operation: Node
     /// returns value of nodes
     /// </summary>
     /// <returns>value of node</returns>
-    public override float? Value_Of_Node()
+    public override float? ValueOfNode()
     {
         switch(Operand)
             {
                 case '+':
-                    Value = left_Node.Value + right_Node.Value;
+                    Value = leftNode.Value + rightNode.Value;
                     break;
                 case '-':
-                    Value = left_Node.Value - right_Node.Value;
+                    Value = leftNode.Value - rightNode.Value;
                     break;
                 case '*':
-                    Value = left_Node.Value * right_Node.Value;
+                    Value = leftNode.Value * rightNode.Value;
                     break;
                 case '/':
-                    if (!(right_Node.Value==0))
+                    if (rightNode.Value==0)
                     {
                         throw new DivisionByZeroException("dont divide on zero");
                     }
-                    Value = left_Node.Value / right_Node.Value;
+                    Value = leftNode.Value / rightNode.Value;
                     break;      
             }
         return Value;
@@ -52,7 +52,7 @@ public class Operation: Node
     /// <returns>whole trie at expression</returns>
     public override string PrintC()
     {
-        var s = $"( {Operand} {left_Node.PrintC()} {right_Node.PrintC()} )";
+        var s = $"( {Operand} {leftNode.PrintC()} {rightNode.PrintC()} )";
         return s;
     }
 }
@@ -66,7 +66,7 @@ public class Number: Node
     /// returns value of node
     /// </summary>
     /// <returns>value</returns>
-    public override float? Value_Of_Node()
+    public override float? ValueOfNode()
     {
         return Value;
     }
