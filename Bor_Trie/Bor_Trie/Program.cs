@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bor_Trie
+﻿
+namespace BorTrie
 {
     public class Trie
     {
@@ -30,51 +25,60 @@ namespace Bor_Trie
         }
         public bool Add(string s)
         {
-            Node Chek_Node = root;
+            Node ChekNode = root;
             for (int i = 0; i < s.Length; ++i)
             {
-                if (Chek_Node.Children.ContainsKey(s[i]))
+                if (ChekNode.Children.ContainsKey(s[i]))
                 {
-                    Chek_Node = Chek_Node.Children[s[i]];
+                    ChekNode = ChekNode.Children[s[i]];
                 }
                 else
                 {
-                    Chek_Node.Children.Add(s[i], new Node());
+                    ChekNode.Children.Add(s[i], new Node());
                     Size++;
-                    Chek_Node = Chek_Node.Children[s[i]];
+                    ChekNode = ChekNode.Children[s[i]];
                 }
-                Chek_Node.Number++;
+                ChekNode.Number++;
             }
-            if (Chek_Node.Terminal == false) { Chek_Node.Terminal = true; return true; }
+            if (!(ChekNode.Terminal)) 
+            { 
+                ChekNode.Terminal = true; return true; 
+            }
             return false;
         }
         public bool Contains(string s)
         {
-            Node Chek_Node = root;
+            Node ChekNode = root;
             for (int i = 0; i < s.Length; ++i)
             {
-                if (Chek_Node.Children.ContainsKey(s[i]))
+                if (ChekNode.Children.ContainsKey(s[i]))
                 {
-                    Chek_Node = Chek_Node.Children[s[i]];
+                    ChekNode = ChekNode.Children[s[i]];
                 }
-                else { return false; }
+                else 
+                { 
+                    return false; 
+                }
             }
-            return Chek_Node.Terminal;
+            return ChekNode.Terminal;
         }
 
         public bool Remove(string s)
         {
-            Node Chek_Node = root;
+            Node ChekNode = root;
             if (Contains(s))
             {
                 for (int i = 0; i < s.Length; ++i)
                 {
-                    if (Chek_Node.Children[s[i]].Number > 1)
+                    if (ChekNode.Children[s[i]].Number > 1)
                     {
-                        Chek_Node = Chek_Node.Children[s[i]];
-                        Chek_Node.Number--;
+                        ChekNode = ChekNode.Children[s[i]];
+                        ChekNode.Number--;
                     }
-                    else { Chek_Node.Children.Remove(s[i]); Size -= (s.Length - i); return true; }
+                    else 
+                    { 
+                        ChekNode.Children.Remove(s[i]); Size -= (s.Length - i); return true; 
+                    }
                 }
                 return true;
             }
@@ -83,16 +87,19 @@ namespace Bor_Trie
 
         public int HowManyStartsWithPrefix(string prefix)
         {
-            Node Chek_Node = root;
+            Node ChekNode = root;
             for (int i = 0; i < prefix.Length; ++i)
             {
-                if (Chek_Node.Children.ContainsKey(prefix[i]))
+                if (ChekNode.Children.ContainsKey(prefix[i]))
                 {
-                    Chek_Node = Chek_Node.Children[prefix[i]];
+                    ChekNode = ChekNode.Children[prefix[i]];
                 }
-                else { return 0; }
+                else 
+                { 
+                    return 0; 
+                }
             }
-            return Chek_Node.Number;
+            return ChekNode.Number;
         }
     }
 
@@ -102,7 +109,7 @@ namespace Bor_Trie
         {
             string s = Console.ReadLine(); // вводим строки через пробел
             string[] mas = s.Split(' ');
-            Trie Trie = new Trie();
+            var Trie = new Trie();
             foreach (string element in mas)
             {
                 Console.WriteLine($"HowManyStartsWithPrefix:{Trie.HowManyStartsWithPrefix(element)},  Contains:{Trie.Contains(element)},  Remove:{Trie.Remove(element)}, Add:{Trie.Add(element)}");
