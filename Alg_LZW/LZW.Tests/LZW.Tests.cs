@@ -15,7 +15,7 @@ public class Tests
     [TestCase("../../../Files/Words.txt")]
     [TestCase("../../../Files/Empty.txt")]
     [TestCase("../../../Files/Tyson.jpg")]
-    public void ExistsFile_YesOrNo(string way)
+    public void ExistsFileYesOrNo(string way)
     {
         Assert.That(!(Math.Abs(OpenFile.Compress(way) - (-1))==0) , "doesnt exist file");
     }
@@ -23,14 +23,14 @@ public class Tests
     [TestCase("../../../Files/Words.txt")]
     [TestCase("../../../Files/Empty.txt")]
     [TestCase("../../../Files/Tyson.jpg")]
-    public void Сorrect_file_compression(string way)
+    public void Сorrectfilecompression(string way)
     {
-        byte[] first_inf = File.ReadAllBytes(way);
+        byte[] firstinf = File.ReadAllBytes(way);
         OpenFile.Compress(way);
         way+=".zipped";
         OpenFile.Uncompress(way);
-        byte[] second_inf = File.ReadAllBytes(way);
-        Assert.AreEqual(first_inf, second_inf);
+        byte[] secondinf = File.ReadAllBytes(way);
+        Assert.AreEqual(firstinf, secondinf);
     }
     
     

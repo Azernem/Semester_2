@@ -1,10 +1,10 @@
 using Bor_Trie;
-public class A_LZW
+public class ALZW
 {
     private int Bytes = 255;
     private int num1 = 256;
     private int num2 = 256;
-    public byte[] Coding(byte[] bits_of_originf)
+    public byte[] Coding(byte[] bitsoforiginf)
     {
         var dict = new Trie();
         for (int i = 0; i<=Bytes; ++i)
@@ -13,10 +13,10 @@ public class A_LZW
             dict.Add(a, i);
         }
         byte[] res = new byte[0];
-        List<byte> CheckBits = new List<byte> {bits_of_originf[0]};
-        for (int i =1; i<bits_of_originf.Length; ++i)
+        List<byte> CheckBits = new List<byte> {bitsoforiginf[0]};
+        for (int i =1; i<bitsoforiginf.Length; ++i)
         {
-            CheckBits.Add(bits_of_originf[i]);
+            CheckBits.Add(bitsoforiginf[i]);
             if (dict.Contains(CheckBits))
             {
                 continue;
@@ -28,14 +28,14 @@ public class A_LZW
                 CheckBits.RemoveAt(CheckBits.Count - 1);
                 Array.Resize(ref res, res.Length +1);
                 res.Append((byte)dict.ValueOfKey(CheckBits));
-                CheckBits = new List<byte> {bits_of_originf[i]};
+                CheckBits = new List<byte> {bitsoforiginf[i]};
             }
         }
         Array.Resize(ref res, res.Length +1);
         res.Append((byte)dict.ValueOfKey(CheckBits));
         return res;
     }
-    public byte[] Decoding(byte[] bits_of_compressedf)
+    public byte[] Decoding(byte[] bitsofcompressedf)
     {
         Dictionary<int, List<byte>> dict = new();
         for (int i = 0; i<=Bytes; ++i)
@@ -44,18 +44,18 @@ public class A_LZW
         }
         var res = new List<byte>();
         List<byte> CheckBitsCf = new();
-        res.Add(bits_of_compressedf[0]);
-        CheckBitsCf.Add(bits_of_compressedf[0]);
-        for (int i = 1; i<bits_of_compressedf.Length; ++i)
+        res.Add(bitsofcompressedf[0]);
+        CheckBitsCf.Add(bitsofcompressedf[0]);
+        for (int i = 1; i<bitsofcompressedf.Length; ++i)
         {
-            CheckBitsCf.Add(dict[(int)bits_of_compressedf[i]][0]);
+            CheckBitsCf.Add(dict[(int)bitsofcompressedf[i]][0]);
             dict.Add(num2, CheckBitsCf);
             num2++;
-            foreach (var j in dict[(int)bits_of_compressedf[i]])
+            foreach (var j in dict[(int)bitsofcompressedf[i]])
             {
                 res.Add(j);
             }
-            CheckBitsCf = new List<byte> (dict[(int)bits_of_compressedf[i]]);
+            CheckBitsCf = new List<byte> (dict[(int)bitsofcompressedf[i]]);
         }
         return res.ToArray();
     }
