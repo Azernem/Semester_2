@@ -1,12 +1,12 @@
 using Microsoft.VisualBasic;
 
-public class Graph
+public class Graphe
 {
     public int Size {get; set;}
     public List<List<(int, int)>> graph {get; set;}
     public List<List<(int, int)>> trie;
     public List<int> NodesAtTrie;
-    public Graph(int size)
+    public Graphe(int size)
     {
         this.Size = size;
         this.graph = GraphWithSize(size);
