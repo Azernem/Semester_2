@@ -3,13 +3,20 @@ public class OpenFile
 {
     int BitsAtByte = 8;
     public float Compress(string way)
-    {   if (!File.Exists(way)) {return -1;};
-        var mas_original = File.ReadAllBytes(way);
-        if (mas_original.Length == 0) {return 0;};
-        var InfoOriginF = this.BitsAtByte*mas_original.Length;
-        var _LZW = new A_LZW();
-        var InfoCompressF = String.Join("", _LZW.Coding(mas_original)).Length;
-        File.WriteAllBytes(way, _LZW.Coding(mas_original));
+    {   
+    if (!File.Exists(way)) 
+    {
+        return -1;
+    }
+        var masoriginal = File.ReadAllBytes(way);
+        if (masoriginal.Length == 0) 
+        {
+            return 0;
+        }
+        var InfoOriginF = this.BitsAtByte*masoriginal.Length;
+        var LZW = new ALZW();
+        var InfoCompressF = String.Join("", LZW.Coding(masoriginal)).Length;
+        File.WriteAllBytes(way, LZW.Coding(masoriginal));
         return (float)(InfoCompressF/InfoOriginF);
     }
     public void Uncompress(string way)
@@ -18,10 +25,10 @@ public class OpenFile
         {
             throw new ArgumentException("Wrong name of compressed file");
         }
-        var mas_of_compressedF = File.ReadAllBytes(way);
-        var _LZW = new A_LZW();
-        var InfoCompressF = String.Join("", mas_of_compressedF).Length;
-        File.WriteAllBytes(way, _LZW.Decoding(mas_of_compressedF));
+        var mascompressedf = File.ReadAllBytes(way);
+        var LZW = new ALZW();
+        var InfoCompressF = String.Join("", mascompressedf).Length;
+        File.WriteAllBytes(way, LZW.Decoding(mascompressedf));
 
     }
 }

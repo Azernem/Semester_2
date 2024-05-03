@@ -1,5 +1,5 @@
 ﻿using OpenFile;
-var _LZW_OpenFile = new OpenFile.OpenFile();
+var LZWOpenFile = new OpenFile.OpenFile();
 if (!(args.Length==2))
 {
     Console.WriteLine("wrong record of input");
@@ -13,12 +13,12 @@ else{
     switch(args[1])
     {
         case "-c":
-            float ratioOf_CompOrigin = _LZW_OpenFile.Compress(args[0]);
+            float ratioOfCompOrigin = LZWOpenFile.Compress(args[0]);
             args[0]+=".zipped";
-            Console.WriteLine($"ratio between comp.file and origin.file = {ratioOf_CompOrigin}.");
+            Console.WriteLine($"ratio between comp.file and origin.file = {ratioOfCompOrigin}.");
             break;
         case "-u":
-            _LZW_OpenFile.Uncompress(args[0]);
+            LZWOpenFile.Uncompress(args[0]);
             var str = args[0];
             args[0] = str[.. (str.Length - 7)];
             break;

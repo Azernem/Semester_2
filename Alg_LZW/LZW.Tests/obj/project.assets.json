@@ -3973,19 +3973,19 @@
     ]
   },
   "packageFolders": {
-    "/home/ogon/.nuget/packages/": {}
+    "/home/zver/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ogon/Загрузки/Alg_LZW/LZW.Tests/LZW.Tests.csproj",
+      "projectUniqueName": "/home/zver/Документы/Git/Semester_2/Alg_LZW/LZW.Tests/LZW.Tests.csproj",
       "projectName": "LZW.Tests",
-      "projectPath": "/home/ogon/Загрузки/Alg_LZW/LZW.Tests/LZW.Tests.csproj",
-      "packagesPath": "/home/ogon/.nuget/packages/",
-      "outputPath": "/home/ogon/Загрузки/Alg_LZW/LZW.Tests/obj/",
+      "projectPath": "/home/zver/Документы/Git/Semester_2/Alg_LZW/LZW.Tests/LZW.Tests.csproj",
+      "packagesPath": "/home/zver/.nuget/packages/",
+      "outputPath": "/home/zver/Документы/Git/Semester_2/Alg_LZW/LZW.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/ogon/.nuget/NuGet/NuGet.Config"
+        "/home/zver/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -3997,8 +3997,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/ogon/Загрузки/Alg_LZW/Alg_LZW.csproj": {
-              "projectPath": "/home/ogon/Загрузки/Alg_LZW/Alg_LZW.csproj"
+            "/home/zver/Документы/Git/Semester_2/Alg_LZW/Alg_LZW.csproj": {
+              "projectPath": "/home/zver/Документы/Git/Semester_2/Alg_LZW/Alg_LZW.csproj"
             }
           }
         }
@@ -4007,6 +4007,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4045,12 +4050,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.18, 7.0.18]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.18, 7.0.18]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.117/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Alg_LZW")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+edc28676c69cf2553d670fbb352b4dfb53eec7c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Alg_LZW")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Alg_LZW")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

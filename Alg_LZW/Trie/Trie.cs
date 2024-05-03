@@ -24,87 +24,101 @@ namespace Bor_Trie
             Size = 0;
             root = new Node();
         }
-        public bool Add(List<byte> try_bits, int code)
+        public bool Add(List<byte> trybits, int code)
         {
-            Node Chek_Node = root;
-            for (int i = 0; i < try_bits.Count; ++i)
+            Node CheckNode = root;
+            for (int i = 0; i < trybits.Count; ++i)
             {
-                if (Chek_Node.Children.ContainsKey(try_bits[i]))
+                if (CheckNode.Children.ContainsKey(trybits[i]))
                 {
-                    Chek_Node = Chek_Node.Children[try_bits[i]];
+                    CheckNode = CheckNode.Children[trybits[i]];
                 }
                 else
                 {
-                    Chek_Node.Children.Add(try_bits[i], new Node());
+                    CheckNode.Children.Add(trybits[i], new Node());
                     Size++;
-                    Chek_Node = Chek_Node.Children[try_bits[i]];
+                    CheckNode = CheckNode.Children[trybits[i]];
                 }
-                Chek_Node.Number++;
+                CheckNode.Number++;
             }
-            Chek_Node.Code=code;
-            if (Chek_Node.Terminal == false) { Chek_Node.Terminal = true; return true; }
+            CheckNode.Code=code;
+            if (CheckNode.Terminal == false) 
+            { 
+                CheckNode.Terminal = true; 
+                return true; 
+            }
             return false;
         }
-        public bool Contains(List<byte> try_bits)
+        public bool Contains(List<byte> trybits)
         {
-            Node Chek_Node = root;
-            for (int i = 0; i < try_bits.Count; ++i)
+            Node CheckNode = root;
+            for (int i = 0; i < trybits.Count; ++i)
             {
-                if (Chek_Node.Children.ContainsKey(try_bits[i]))
+                if (CheckNode.Children.ContainsKey(trybits[i]))
                 {
-                    Chek_Node = Chek_Node.Children[try_bits[i]];
+                    CheckNode = CheckNode.Children[trybits[i]];
                 }
-                else { return false; }
+                else 
+                { 
+                    return false; 
+                }
             }
-            return Chek_Node.Terminal;
+            return CheckNode.Terminal;
         }
 
-        public bool Remove(List<byte> try_bits)
+        public bool Remove(List<byte> trybits)
         {
-            Node Chek_Node = root;
-            if (Contains(try_bits))
+            Node CheckNode = root;
+            if (Contains(trybits))
             {
-                for (int i = 0; i < try_bits.Count; ++i)
+                for (int i = 0; i < trybits.Count; ++i)
                 {
-                    if (Chek_Node.Children[try_bits[i]].Number > 1)
+                    if (CheckNode.Children[trybits[i]].Number > 1)
                     {
-                        Chek_Node = Chek_Node.Children[try_bits[i]];
-                        Chek_Node.Number--;
+                        CheckNode = CheckNode.Children[trybits[i]];
+                        CheckNode.Number--;
                     }
-                    else { Chek_Node.Children.Remove(try_bits[i]); Size -= (try_bits.Count - i); return true; }
+                    else 
+                    { 
+                        CheckNode.Children.Remove(trybits[i]); Size -= (trybits.Count - i); 
+                        return true; 
+                    }
                 }
                 return true;
             }
             return false;
         }
 
-        public int HowManyStartsWithPrefix(List<byte> try_bits)
+        public int HowManyStartsWithPrefix(List<byte> trybits)
         {
-            Node Chek_Node = root;
-            for (int i = 0; i < try_bits.Count; ++i)
+            Node CheckNode = root;
+            for (int i = 0; i < trybits.Count; ++i)
             {
-                if (Chek_Node.Children.ContainsKey(try_bits[i]))
+                if (CheckNode.Children.ContainsKey(trybits[i]))
                 {
-                    Chek_Node = Chek_Node.Children[try_bits[i]];
+                    CheckNode = CheckNode.Children[trybits[i]];
                 }
-                else { return 0; }
-            }
-            return Chek_Node.Number;
-        }
-        public int ValueOfKey(List<byte> try_bits) 
-        {
-             Node Chek_Node = root;
-             for (int i = 0; i<try_bits.Count; ++i)
-             {
-                if (Chek_Node.Children.ContainsKey(try_bits[i]))
+                else 
                 {
-                    Chek_Node = Chek_Node.Children[try_bits[i]];
+                    return 0; 
+                }
+            }
+            return CheckNode.Number;
+        }
+        public int ValueOfKey(List<byte> trybits) 
+        {
+             Node CheckNode = root;
+             for (int i = 0; i<trybits.Count; ++i)
+             {
+                if (CheckNode.Children.ContainsKey(trybits[i]))
+                {
+                    CheckNode = CheckNode.Children[trybits[i]];
                 }
                 else{
                     return -1;
                 }
              }
-             return Chek_Node.Code;
+             return CheckNode.Code;
         }
     }
 
