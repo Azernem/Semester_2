@@ -7,11 +7,11 @@ public class GraphToExpression
     /// transformes graph to expression 
     /// </summary>
     /// <param name="way">filepath with right topology</param>
-    /// <param name="_Graph">class of graph trie and algoritme Prima</param>
-    public void CreateExpression(string way, Graph _Graph)
+    /// <param name="Graph">class of graph trie and algoritme Prima</param>
+    public void CreateExpression(string way, Graphe Graph)
     {
-        _Graph.Prima();
-        var trie = _Graph.trie;
+        Graph.Prima();
+        var trie = Graph.trie;
         var result = new List<string>();
         for (int line = 0; line<trie.Count; ++line)
         {
