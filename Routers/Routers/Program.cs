@@ -8,8 +8,8 @@ internal static class Programm
         string way = "Routers/Edges_of_Routers_.txt";
         string toWay = "Routers/Result_File.txt" ;
         var creategraph = new CreateGraph();
-        var _Graph = creategraph.GetGraph(way);
+        var Graph = creategraph.GetGraph(way);
         var createexpression = new GraphToExpression();
-        createexpression.CreateExpression(toWay, _Graph);
+        createexpression.CreateExpression(toWay, Graph);
     }
 }
