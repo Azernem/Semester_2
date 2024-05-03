@@ -9,15 +9,15 @@ public class CreateGraph
     /// <param name="way">filepath</param>
     /// <returns></returns>
     /// <exception cref="NoSuchWayException">throw exseption if file doesnt exist </exception>
-    public Graph GetGraph(string way)
+    public Graphe GetGraph(string way)
     {
         if (!(File.Exists(way)))
         {
             throw new NoSuchWayException("No such file");
         }
         string[] expression = File.ReadAllLines(way);
-        var _Graph = new Graph(MaxNode(way));
-        var graph = _Graph.graph;
+        var Graph = new Graphe(MaxNode(way));
+        var graph = Graph.graph;
         for (int i = 0; i<expression.Length; ++i)
         {
             var stringDependendNodes = expression[i].Substring(3, expression[i].Length - 4);
@@ -29,9 +29,9 @@ public class CreateGraph
                 graph[couple.Item1 - 1].Add((i+1, couple.Item2));
             }
         }
-        _Graph.graph = graph;
-        _Graph.EmptyNodes();
-        return _Graph;
+        Graph.graph = graph;
+        Graph.EmptyNodes();
+        return Graph;
     }
     /// <summary>
     /// method that returns a max number router (emount of all routers at topology)
