@@ -16,13 +16,13 @@ public class BubbleSort<T>
     /// <param name="comparer"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public List<T> Bubble<T>(IList<T> list, IComparer<T> comparer)
+    public static List<T> Bubble(List<T> list, IComparer<T> comparer)
     {
     for (int i = 0; i < list.Count; ++i)
     {
         for (int j = 1; j < list.Count - i; ++j)
         {
-            if (comparer.Compare(list[j-1], list[j]>0))
+            if (comparer.Compare(list[j-1], list[j])>0)
             {
                 (list[j - 1], list[j]) = (list[j], list[j-1]);
             }
