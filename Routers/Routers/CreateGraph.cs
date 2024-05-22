@@ -6,17 +6,17 @@ public class CreateGraph
     /// <summary>
     /// method wich gets graph from input expression
     /// </summary>
-    /// <param name="way">filepath</param>
+    /// <param name="path">filepath</param>
     /// <returns></returns>
-    /// <exception cref="NoSuchWayException">throw exseption if file doesnt exist </exception>
-    public Graphe GetGraph(string way)
+    /// <exception cref="NoSuchpathException">throw exseption if file doesnt exist </exception>
+    public Graphe GetGraph(string path)
     {
-        if (!(File.Exists(way)))
+        if (!(File.Exists(path)))
         {
-            throw new NoSuchWayException("No such file");
+            throw new NoSuchpathException("No such file");
         }
-        string[] expression = File.ReadAllLines(way);
-        var Graph = new Graphe(MaxNode(way));
+        string[] expression = File.ReadAllLines(path);
+        var Graph = new Graphe(MaxNode(path));
         var graph = Graph.graph;
         for (int i = 0; i<expression.Length; ++i)
         {
@@ -36,17 +36,17 @@ public class CreateGraph
     /// <summary>
     /// method that returns a max number router (emount of all routers at topology)
     /// </summary>
-    /// <param name="way">filepath with topology-text</param>
+    /// <param name="path">filepath with topology-text</param>
     /// <returns>emount of all routers at topology</returns>
-    /// <exception cref="NoSuchWayException">throw exseption if file doesnt exist</exception>
-    public int MaxNode(string way)
+    /// <exception cref="NoSuchpathException">throw exseption if file doesnt exist</exception>
+    public int MaxNode(string path)
     {
         int max = 0;
-        if (!(File.Exists(way)))
+        if (!(File.Exists(path)))
         {
-            throw new NoSuchWayException("No such file");
+            throw new NoSuchpathException("No such file");
         }
-        string[] expression = File.ReadAllLines(way);
+        string[] expression = File.ReadAllLines(path);
         for (int i = 0; i<expression.Length; ++i)
         {
             var stringDependendNodes = expression[i].Substring(3, expression[i].Length - 4);
