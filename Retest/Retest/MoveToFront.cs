@@ -1,4 +1,4 @@
-// <copyright file="MoveToFront.cs" company="NematMusaev"> 
+// <copyright file="MoveToFront.cs" company="NematMusaev">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 namespace Retest;
@@ -16,6 +16,9 @@ public static class MoveToFront
 
     private static char[] alphabet = new char[26];
 
+    /// <summary>
+    ///  ethod that gets english alphabet.
+    /// </summary>
     public static void CreateSymbolTable()
     {
         string letters = "abcdefghijklmnopqrstuvwxyz";
@@ -25,7 +28,12 @@ public static class MoveToFront
             alphabet[i] = letters[i];
         }
     }
-    
+
+    /// <summary>
+    /// method that performs encoding.
+    /// </summary>
+    /// <param name="input">input string.</param>
+    /// <returns>encodedSequence.</returns>
     public static int[] Encode(string input)
     {
         CreateSymbolTable();
