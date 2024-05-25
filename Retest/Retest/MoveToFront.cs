@@ -36,6 +36,7 @@ public static class MoveToFront
     /// <returns>encodedSequence.</returns>
     public static int[] Encode(string input)
     {
+        result = new List<int>();
         CreateSymbolTable();
 
         if (input.Length == 0)
@@ -43,21 +44,29 @@ public static class MoveToFront
             throw new ArgumentNullException("string cannot be empty for encoding");
         }
 
-        foreach (char symbol in input)
+        foreach (char symbol in input.ToLower())
         {
-            for (int i = 0; i < alphabet.Length; i++)
-                {
-                    if (alphabet[i] == symbol)
-                    {
-                        result.Add(i);
-                        MoveToStart(i);
-                        break;
-                    }
-                }
+            if (IsLetter(symbol))
+            {
+                var index = Array.IndexOf(alphabet, symbol);
+                result.Add(index);
+                MoveToStart(index);
+            }
+            else
+            {
+                throw new ArgumentException("incorrect symbol");
+            }
+        }
+
+        foreach (int n in result)
+        {
+            Console.WriteLine(n);
         }
 
         return result.ToArray();
     }
+
+    private static bool IsLetter(char symbol) => alphabet.Any(element => (element == symbol));
 
     private static void MoveToStart(int index)
     {
