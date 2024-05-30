@@ -1,14 +1,23 @@
+// <copyright file="Prima.cs" company="NematMusaev">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 using Microsoft.VisualBasic;
 
-public class Graphe
+public class Graph
 {
     public int Size {get; set;}
+
     public List<List<(int, int)>> graph {get; set;}
+
     public List<List<(int, int)>> trie;
+
     public List<int> NodesAtTrie;
 
-    public Graphe(string path)
+    public string path;
+
+    public Graph(string path)
     {
+        this.path = path;
         this.Size = MaxNode(path);
         this.graph = GraphWithSize(Size);
         this.trie = GraphWithSize(Size);
@@ -21,16 +30,17 @@ public class Graphe
     /// <param name="path">filepath</param>
     /// <returns></returns>
     /// <exception cref="NoSuchpathException">throw exseption if file doesnt exist </exception>
-    public void Getgraph(string path)
+    public void Getgraph()
     {
-        if (!(File.Exists(path)))
+
+        if (!File.Exists(path))
         {
-            throw new NoSuchpathException("No such file");
+            throw new NoSuchPathException("No such file");
         }
 
         string[] expression = File.ReadAllLines(path);
 
-        for (int i = 0; i<expression.Length; ++i)
+        for (int i = 0; i < expression.Length; ++i)
         {
             var stringDependendNodes = expression[i].Substring(3, expression[i].Length - 4);
             stringDependendNodes = stringDependendNodes.Replace("(", "").Replace(")", "").Replace(", ", ",");
@@ -56,22 +66,22 @@ public class Graphe
     {
         int max = 0;
 
-        if (!(File.Exists(path)))
+        if (!File.Exists(path))
         {
-            throw new NoSuchpathException("No such file");
+            throw new NoSuchPathException("No such file");
         }
 
         string[] expression = File.ReadAllLines(path);
 
-        for (int i = 0; i<expression.Length; ++i)
+        for (int i = 0; i < expression.Length; ++i)
         {
             var stringDependendNodes = expression[i].Substring(3, expression[i].Length - 4);
             stringDependendNodes = stringDependendNodes.Replace("(", "").Replace(")", "").Replace(", ", ",");
             var couples = GetCouplesDependendNodes(stringDependendNodes);
 
-            foreach ((int, int) couple in couples)
+            foreach (var couple in couples)
             {
-                if (couple.Item1>max)
+                if (couple.Item1 > max)
                 {
                     max = couple.Item1;
                 }
@@ -92,7 +102,7 @@ public class Graphe
         var array = s.Split(",");
         var result = new (int, int)[array.Length];
 
-        for (int i =0; i<array.Length; ++i)
+        for (int i = 0; i < array.Length; ++i)
         {
             var arraypara = array[i].Split(" ");
             int numbernode, numberweight;
@@ -101,7 +111,8 @@ public class Graphe
             {
                 result[i] = (numbernode, numberweight);
             }
-            else{
+            else
+            {
                 throw new IncorrectExpressionException(" router isnt number in expression");
             }
         }
@@ -117,9 +128,9 @@ public class Graphe
     /// <returns>topology at graph</returns>
     public List<List<(int, int)>> GraphWithSize(int size)
     {
-        List<List<(int, int)>> graph = new();
+        List<List<(int, int)>> graph = new ();
 
-        for (int i =0; i<size; ++i)
+        for (int i =0; i < size; ++i)
         {
             var list = new List<(int, int)>();
             graph.Add(list);
@@ -127,6 +138,7 @@ public class Graphe
 
         return graph;
     }
+
     /// <summary>
     /// method that to  new router-edges to graph 
     /// </summary>
@@ -136,8 +148,9 @@ public class Graphe
     public void NewEdge(int firstNode, int secondNode, int weight)
     {
         trie[firstNode].Add((secondNode, weight));
-        trie[secondNode-1].Add((firstNode+1, weight));
+        trie[secondNode - 1].Add((firstNode + 1, weight));
     }
+
     /// <summary>
     /// checking to useless nodes
     /// </summary>
@@ -148,10 +161,11 @@ public class Graphe
         {
             if (list.Count == 0 )
             {
-                throw new NoEdgeException("Tere is Node, which doesnt contain edge");
+                throw new NoEdgeException("There is Node, which doesnt contain edge");
             }
         }
     }
+
     /// <summary>
     /// searcing of maximal weight? power of edge
     /// </summary>
@@ -159,13 +173,13 @@ public class Graphe
     {
         EmptyNodes();
         var max = 0;
-        int firstNode =0, secondNode = 0;
+        int firstNode = 0, secondNode = 0;
 
-        for (int i = 0; i<graph.Count; ++i)
+        for (int i = 0; i < graph.Count; ++i)
         {
-            foreach((int, int) couple in graph[i])
+            foreach(var couple in graph[i])
             {
-                if (couple.Item2>max)
+                if (couple.Item2 > max)
                 {
                     max = couple.Item2;
                     secondNode = couple.Item1;
@@ -175,15 +189,17 @@ public class Graphe
         }
 
         NewEdge(firstNode, secondNode, max);
-        NodesAtTrie.Add(firstNode+1);
+        NodesAtTrie.Add(firstNode + 1);
         NodesAtTrie.Add(secondNode);
     }
+
     /// <summary>
     /// crates right topology-graph 
     /// </summary>
     /// <returns>graph without extra edges</returns>
     public List<List<(int, int)>> Prima()
     {
+        Getgraph();
         AddMaxWeight();
         int max = 0;
         int candidatToTrieOne = 0;
@@ -193,9 +209,9 @@ public class Graphe
         {
             for (int Node = 0; Node<graph.Count; Node++)
             {
-                if (NodesAtTrie.Contains(Node+1))
+                if (NodesAtTrie.Contains(Node + 1))
                 {
-                    foreach((int, int) couple in graph[Node])
+                    foreach(var couple in graph[Node])
                     {
                         if (!(NodesAtTrie.Contains(couple.Item1)))
                         {
