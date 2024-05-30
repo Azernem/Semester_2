@@ -30,7 +30,7 @@ public class Graph
     /// <param name="path">filepath</param>
     /// <returns></returns>
     /// <exception cref="NoSuchpathException">throw exseption if file doesnt exist </exception>
-    public void Getgraph()
+    public void GetGraph()
     {
 
         if (!File.Exists(path))
@@ -46,10 +46,10 @@ public class Graph
             stringDependendNodes = stringDependendNodes.Replace("(", "").Replace(")", "").Replace(", ", ",");
             var couples = GetCouplesDependendNodes(stringDependendNodes);
 
-            foreach ((int, int) couple in couples)
+            foreach (var couple in couples)
             {
                 graph[i].Add(couple);
-                graph[couple.Item1 - 1].Add((i+1, couple.Item2));
+                graph[couple.Item1 - 1].Add((i + 1, couple.Item2));
             }
         }
 
@@ -159,7 +159,7 @@ public class Graph
     {
         foreach (List<(int, int)> list in graph)
         {
-            if (list.Count == 0 )
+            if (list.Count == 0)
             {
                 throw new NoEdgeException("There is Node, which doesnt contain edge");
             }
@@ -177,7 +177,7 @@ public class Graph
 
         for (int i = 0; i < graph.Count; ++i)
         {
-            foreach(var couple in graph[i])
+            foreach (var couple in graph[i])
             {
                 if (couple.Item2 > max)
                 {
@@ -199,7 +199,7 @@ public class Graph
     /// <returns>graph without extra edges</returns>
     public List<List<(int, int)>> Prima()
     {
-        Getgraph();
+        GetGraph();
         AddMaxWeight();
         int max = 0;
         int candidatToTrieOne = 0;
@@ -207,7 +207,7 @@ public class Graph
 
         while (NodesAtTrie.Count!=Size)
         {
-            for (int Node = 0; Node<graph.Count; Node++)
+            for (int Node = 0; Node < graph.Count; Node++)
             {
                 if (NodesAtTrie.Contains(Node + 1))
                 {
