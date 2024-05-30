@@ -1,3 +1,6 @@
+// <copyright file="Router.Tests.cs" company="NematMusaev">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 namespace Routers.Tests;
 
 using System;
@@ -9,28 +12,27 @@ public class Tests
     [Test]
     public void IsCountDependings()
     {
-        var creat = new CreateGraph();
-        string s = "../../../IsCountDependings.txt";
-        var g = creat.GetGraph(s);
-        Assert.That(g.graph.Count, Is.EqualTo(5));
+        string way = "../../../IsCountDependings.txt";
+        var graphclass = new Graph(way);
+        graphclass.Getgraph();
+        Assert.That(graphclass.graph.Count, Is.EqualTo(5));
     }
     [Test]
     public void ExpressionToGraph()
     {
-        var creategraph = new CreateGraph();
         string way = "../../../ExpressionToGraph.txt";
-        var Graph = creategraph.GetGraph(way);
+        var graphclass = new Graph(way);
+        graphclass.Getgraph();
         var checkgraph = new List<List<(int, int)>>() {new List<(int, int)> {(2, 10), (3, 5)}, new List<(int, int)> {(1, 10), (3, 1)}, new List<(int, int)> {(1, 5), (2, 1)}};
-        Assert.That(checkgraph, Is.EqualTo(Graph.graph));
+        Assert.That(checkgraph, Is.EqualTo(graphclass.graph));
     }
     [Test]
     public void TopologyWithoutExtraEdges()
     {
-        var creategraph = new CreateGraph();
         string way = "../../../ExpressionToGraph.txt";
-        var Graph = creategraph.GetGraph(way);
-        Graph.Prima();
+        var graphclass = new Graph(way);
+        graphclass.Prima();
         var checktrie = new List<List<(int,  int)>>() {new List<(int, int)> {(2, 10), (3, 5)}, new List<(int, int)> {(1, 10)}, new List<(int, int)> {(1, 5)}};
-        Assert.That(checktrie, Is.EqualTo(Graph.trie));
+        Assert.That(checktrie, Is.EqualTo(graphclass.trie));
     }
 }
