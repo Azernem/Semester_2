@@ -1,6 +1,9 @@
-public class NoSuchWayException: Exception
+// <copyright file="Exceptions.cs" company="NematMusaev">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+public class NoSuchPathException: Exception
 {
-    public NoSuchWayException(string message): base(message) 
+    public NoSuchPathException(string message): base(message) 
     {
         
     }
