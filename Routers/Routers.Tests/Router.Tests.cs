@@ -14,7 +14,7 @@ public class Tests
     {
         string way = "../../../IsCountDependings.txt";
         var graphclass = new Graph(way);
-        graphclass.Getgraph();
+        graphclass.GetGraph();
         Assert.That(graphclass.graph.Count, Is.EqualTo(5));
     }
     [Test]
@@ -22,7 +22,7 @@ public class Tests
     {
         string way = "../../../ExpressionToGraph.txt";
         var graphclass = new Graph(way);
-        graphclass.Getgraph();
+        graphclass.GetGraph();
         var checkgraph = new List<List<(int, int)>>() {new List<(int, int)> {(2, 10), (3, 5)}, new List<(int, int)> {(1, 10), (3, 1)}, new List<(int, int)> {(1, 5), (2, 1)}};
         Assert.That(checkgraph, Is.EqualTo(graphclass.graph));
     }

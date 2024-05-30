@@ -26,9 +26,9 @@ public class GraphToExpression
             {
                 string s = $"{line + 1}: ";
 
-                foreach(var couple in trie[line])
+                foreach (var couple in trie[line])
                 {
-                    s+= $"{couple.Item1} ({couple.Item2}), ";
+                    s += $"{couple.Item1} ({couple.Item2}), ";
                 } 
 
                 s = s.Substring(0, s.Length - 2);
