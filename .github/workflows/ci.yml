@@ -26,6 +26,3 @@ jobs:
               run: For /R %%I in (*.sln) do dotnet build %%I
             - name: Run tests
               run: For /R %%I in (*.sln) do dotnet test %%I
-      
-        name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
