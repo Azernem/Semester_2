@@ -25,4 +25,5 @@ jobs:
             - name: Build
               run: For /R %%I in (*.sln) do dotnet build %%I
             - name: Run tests
+<<<<<<< HEAD
               run: For /R %%I in (*.sln) do dotnet test %%I

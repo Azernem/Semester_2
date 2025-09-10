@@ -1,0 +1,57 @@
+7f2854c |  | Azernem | 160176623+Azernem@users.noreply.github.com
+dfd6a22 | origin/Routers_, Routers_ | Azernem | nemat.musaev5@mail.ru
+1be87d7 |  | Azernem | nemat.musaev5@mail.ru
+907e73a | HEAD -> main, origin/main | Azernem | nemat.musaev5@mail.ru
+36ef293 |  | Azernem | 160176623+Azernem@users.noreply.github.com
+db52b96 |  | Azernem | 160176623+Azernem@users.noreply.github.com
+2d83498 |  | Azernem | 160176623+Azernem@users.noreply.github.com
+3cd524d |  | Azernem | 160176623+Azernem@users.noreply.github.com
+9ece9f2 | origin/Parse_Trie, Parse_Trie | Azernem | nematmusaev047.@gmail.com
+3caef12 |  | Azernem | nematmusaev047.@gmail.com
+f7fbe51 | origin/FinalTest, FinalTest | Azernem | nematmusaev047.@gmail.com
+46aba01 |  | Azernem | nematmusaev047.@gmail.com
+409dde4 | origin/Finaltest, Finaltest | Azernem | nematmusaev047.@gmail.com
+b3d4b0f | origin/Prob, Prob | Azernem | nematmusaev047.@gmail.com
+565f0cb |  | Azernem | nematmusaev047.@gmail.com
+310e309 | origin/Retest, Retest | Azernem | nematmusaev047.@gmail.com
+7f5455d |  | Azernem | nematmusaev047.@gmail.com
+0bf9d3c |  | Azernem | nematmusaev047.@gmail.com
+c2c6f63 |  | Azernem | nematmusaev047.@gmail.com
+2051c2b | origin/CatchTheButton-1, CatchTheButton-1 | Azernem | 160176623+Azernem@users.noreply.github.com
+f30559d | origin/Semester_2, Semester_2 | Azernem | 160176623+Azernem@users.noreply.github.com
+231f724 |  | Azernem | nematmusaev047.@gmail.com
+f66c01d | origin/Stack_Kalkulator.Test, Stack_Kalkulator.Test | Azernem | nematmusaev047.@gmail.com
+828ba16 | origin/Alg_Barrouse-Wheeler, Alg_Barrouse-Wheeler | Azernem | nematmusaev047.@gmail.com
+638163f | origin/Alg_LZW, Alg_LZW | Azernem | nematmusaev047.@gmail.com
+2e24969 | origin/BubbleSort, BubbleSort | Azernem | nematmusaev047.@gmail.com
+01b1c2f |  | Azernem | nematmusaev047.@gmail.com
+8781b64 | origin/Unity_Presentation, Unity_Presentation | Azernem | nematmusaev047.@gmail.com
+5877039 | origin/MApFilterFold, MApFilterFold | Azernem | nematmusaev047.@gmail.com
+b2d0361 |  | Azernem | nematmusaev047.@gmail.com
+c98cad7 |  | Azernem | nematmusaev047.@gmail.com
+646ca80 |  | Azernem | nematmusaev047.@gmail.com
+e376e83 | origin/Bor_Trie, Bor_Trie | Azernem | nematmusaev047.@gmail.com
+13ddc98 |  | Azernem | nematmusaev047.@gmail.com
+14c5671 |  | Azernem | nematmusaev047.@gmail.com
+5e41302 |  | Azernem | nematmusaev047.@gmail.com
+6a15849 |  | Azernem | nematmusaev047.@gmail.com
+4ee6b8c |  | Azernem | nematmusaev047.@gmail.com
+87914aa |  | Azernem | nematmusaev047.@gmail.com
+e74e7c6 |  | Azernem | nematmusaev047.@gmail.com
+9900639 |  | Azernem | nematmusaev047.@gmail.com
+5e1bf9e |  | Azernem | nematmusaev047.@gmail.com
+7552ca3 | origin/queues, queues | Azernem | nematmusaev047.@gmail.com
+4fe3eeb | origin/CatchTheButton, CatchTheButton | Azernem | 160176623+Azernem@users.noreply.github.com
+609962b |  | Azernem | 160176623+Azernem@users.noreply.github.com
+9d83379 |  | Azernem | 160176623+Azernem@users.noreply.github.com
+c3d9ca2 |  | Azernem | 160176623+Azernem@users.noreply.github.com
+d61282e |  | Azernem | 160176623+Azernem@users.noreply.github.com
+508c53a |  | Azernem | 160176623+Azernem@users.noreply.github.com
+250723e |  | Azernem | 160176623+Azernem@users.noreply.github.com
+674efe5 |  | Azernem | 160176623+Azernem@users.noreply.github.com
+3ae95b5 | origin/UniqueList, UniqueList | Azernem | 160176623+Azernem@users.noreply.github.com
+9332ef2 |  | Azernem | 160176623+Azernem@users.noreply.github.com
+ee82e99 |  | Azernem | 160176623+Azernem@users.noreply.github.com
+4806226 |  | Azernem | 160176623+Azernem@users.noreply.github.com
+dbe339b |  | Azernem | 160176623+Azernem@users.noreply.github.com
+cf47f7a | origin/Vectors, Vectors | Azernem | 160176623+Azernem@users.noreply.github.com
