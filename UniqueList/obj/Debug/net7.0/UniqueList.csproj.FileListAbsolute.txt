@@ -1,0 +1,5 @@
+/home/ogon/UniqueList/obj/Debug/net7.0/UniqueList.csproj.AssemblyReference.cache
+/home/ogon/UniqueList/obj/Debug/net7.0/UniqueList.GeneratedMSBuildEditorConfig.editorconfig
+/home/ogon/UniqueList/obj/Debug/net7.0/UniqueList.AssemblyInfoInputs.cache
+/home/ogon/UniqueList/obj/Debug/net7.0/UniqueList.AssemblyInfo.cs
+/home/ogon/UniqueList/obj/Debug/net7.0/UniqueList.csproj.CoreCompileInputs.cache
