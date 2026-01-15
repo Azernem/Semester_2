@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parse_Trie.Tests", "Parse_Trie.Tests\Parse_Trie.Tests.csproj", "{A48C3E92-F96F-4D86-8BAD-B92010655E77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parse_Trie", "Parse_Trie\Parse_Trie.csproj", "{1B813C06-D206-40D7-AB30-3BFDB8B98416}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A48C3E92-F96F-4D86-8BAD-B92010655E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A48C3E92-F96F-4D86-8BAD-B92010655E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A48C3E92-F96F-4D86-8BAD-B92010655E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A48C3E92-F96F-4D86-8BAD-B92010655E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B813C06-D206-40D7-AB30-3BFDB8B98416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B813C06-D206-40D7-AB30-3BFDB8B98416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B813C06-D206-40D7-AB30-3BFDB8B98416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B813C06-D206-40D7-AB30-3BFDB8B98416}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
